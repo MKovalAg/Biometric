@@ -1,11 +1,12 @@
 # BiometricAuthentication
 
-1. You need to add a key to info.plist:
+## 1. You need to add a key to info.plist:
 
-Privacy - Face ID Usage Description
+- Privacy - Face ID Usage Description
 
-2. Method for using face/touch ID:
+## 2. Method for using face/touch ID:
     
+    ```
     func checkBiometric(successCallback: @escaping () -> Void, errorCallback: @escaping (Error) -> Void) {
         biometric.authenticate(reason: "Please, authorization") { [weak self] success, error in
             if success {
@@ -27,11 +28,14 @@ Privacy - Face ID Usage Description
             }
         }
     }
+    ```
 
-2. Callback processing:
+## 3. Callback processing:
 
+    ```
     checkBiometric {
         print("Successful recognition")
     } errorCallback: { error in
         print("Error: \(error.localizedDescription)")
     }
+    ```
